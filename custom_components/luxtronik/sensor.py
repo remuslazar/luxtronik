@@ -1,9 +1,14 @@
 """Support for Luxtronik heatpump sensors."""
+
 import logging
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
-from homeassistant.components.sensor import PLATFORM_SCHEMA, STATE_CLASSES_SCHEMA, SensorEntity
+from homeassistant.components.sensor import (
+    PLATFORM_SCHEMA,
+    STATE_CLASSES_SCHEMA,
+    SensorEntity,
+)
 from homeassistant.const import (
     CONF_FRIENDLY_NAME,
     CONF_ICON,
@@ -91,9 +96,7 @@ class LuxtronikSensor(SensorEntity):
         self._name = friendly_name
         self._icon = icon
         self._state_class = state_class
-        self._attr_unique_id = ENTITY_ID_FORMAT.format(
-            slugify(self._sensor.name)
-        )
+        self._attr_unique_id = ENTITY_ID_FORMAT.format(slugify(self._sensor.name))
 
     @property
     def name(self):

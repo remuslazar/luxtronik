@@ -1,4 +1,5 @@
 """Constants for the Luxtronik integration."""
+
 from homeassistant.const import (
     DEVICE_CLASS_TEMPERATURE,
     DEVICE_CLASS_PRESSURE,
@@ -81,5 +82,5 @@ UNITS = {
     CONF_HOURS: "h",
     CONF_FLOW: "l/h",
     CONF_WATT: "W",
-    CONF_FREQUENCY: "Hz"
+    CONF_FREQUENCY: "Hz",
 }
