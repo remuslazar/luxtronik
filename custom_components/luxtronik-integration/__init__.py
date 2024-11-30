@@ -1,29 +1,26 @@
 """Support for Luxtronik heatpump controllers."""
+
+import logging
 import threading
 from datetime import timedelta
-from typing import Optional
-import logging
 
-from luxtronik import LOGGER as LuxLogger, Luxtronik as Lux
-import voluptuous as vol
-
-from homeassistant.const import CONF_HOST, CONF_PORT
 import homeassistant.helpers.config_validation as cv
+import voluptuous as vol
+from homeassistant.const import CONF_HOST, CONF_PORT
 from homeassistant.util import Throttle
+
+from luxtronik import Luxtronik as Lux
 
 from .const import (
     ATTR_PARAMETER,
     ATTR_VALUE,
     CONF_CALCULATIONS,
+    CONF_LOCK_TIMEOUT,
     CONF_PARAMETERS,
     CONF_SAFE,
-    CONF_VISIBILITIES,
     CONF_UPDATE_IMMEDIATELY_AFTER_WRITE,
-    CONF_LOCK_TIMEOUT,
+    CONF_VISIBILITIES,
 )
-
-LuxLogger.setLevel(level="WARNING")
-
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -61,7 +58,7 @@ SERVICE_WRITE_SCHEMA = vol.Schema(
 )
 
 
-def setup(hass, config):
+def setup(hass, config) -> bool:
     """Set up the Luxtronik component."""
     conf = config[DOMAIN]
 
