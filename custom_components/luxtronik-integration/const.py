@@ -1,16 +1,7 @@
 """Constants for the Luxtronik integration."""
 
-from homeassistant.const import (
-    DEVICE_CLASS_TEMPERATURE,
-    DEVICE_CLASS_PRESSURE,
-    DEVICE_CLASS_TIMESTAMP,
-    DEVICE_CLASS_ENERGY,
-    DEVICE_CLASS_POWER,
-    DEVICE_CLASS_FREQUENCY,
-    ENERGY_KILO_WATT_HOUR,
-    PRESSURE_BAR,
-    TEMP_CELSIUS,
-)
+from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.const import UnitOfTemperature, UnitOfPressure, UnitOfEnergy
 
 ATTR_PARAMETER = "parameter"
 ATTR_VALUE = "value"
@@ -60,24 +51,24 @@ ICONS = {
 }
 
 DEVICE_CLASSES = {
-    CONF_CELSIUS: DEVICE_CLASS_TEMPERATURE,
-    CONF_KELVIN: DEVICE_CLASS_TEMPERATURE,
-    CONF_BAR: DEVICE_CLASS_PRESSURE,
-    CONF_SECONDS: DEVICE_CLASS_TIMESTAMP,
-    CONF_HOURS: DEVICE_CLASS_TIMESTAMP,
-    CONF_TIMESTAMP: DEVICE_CLASS_TIMESTAMP,
-    CONF_ENERGY: DEVICE_CLASS_ENERGY,
-    CONF_WATT: DEVICE_CLASS_POWER,
-    CONF_FREQUENCY: DEVICE_CLASS_FREQUENCY,
+    CONF_CELSIUS: SensorDeviceClass.TEMPERATURE,
+    CONF_KELVIN: SensorDeviceClass.TEMPERATURE,
+    CONF_BAR: SensorDeviceClass.PRESSURE,
+    CONF_SECONDS: SensorDeviceClass.TIMESTAMP,
+    CONF_HOURS: SensorDeviceClass.TIMESTAMP,
+    CONF_TIMESTAMP: SensorDeviceClass.TIMESTAMP,
+    CONF_ENERGY: SensorDeviceClass.ENERGY,
+    CONF_WATT: SensorDeviceClass.POWER,
+    CONF_FREQUENCY: SensorDeviceClass.FREQUENCY,
 }
 
 UNITS = {
-    CONF_CELSIUS: TEMP_CELSIUS,
+    CONF_CELSIUS: UnitOfTemperature.CELSIUS,
     CONF_SECONDS: "s",
     CONF_KELVIN: "K",
-    CONF_BAR: PRESSURE_BAR,
+    CONF_BAR: UnitOfPressure.BAR,
     CONF_PERCENT: "%",
-    CONF_ENERGY: ENERGY_KILO_WATT_HOUR,
+    CONF_ENERGY: UnitOfEnergy.KILO_WATT_HOUR,
     CONF_VOLTAGE: "V",
     CONF_HOURS: "h",
     CONF_FLOW: "l/h",
