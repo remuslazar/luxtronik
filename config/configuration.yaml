@@ -1,0 +1,142 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+luxtronik:
+  host: 192.168.178.43
+  port: 8889
+
+
+sensor:
+  - platform: luxtronik
+    # See https://github.com/Bouni/python-luxtronik/blob/main/luxtronik/calculations.py
+    sensors:
+      - group: calculations
+        id: ID_WEB_Temperatur_TVL
+        friendly_name: Temperatur Vorlauf
+        icon: mdi:thermometer
+
+      - group: calculations
+        id: ID_WEB_Temperatur_TRL
+        friendly_name: Temperatur Rücklauf
+        icon: mdi:thermometer
+
+      - group: calculations
+        id: ID_WEB_Sollwert_TRL_HZ
+        friendly_name: Temperatur Rücklauf Sollwert
+        icon: mdi:thermometer
+
+      - group: calculations
+        id: ID_WEB_Durchfluss_WQ
+        friendly_name: Durchfluss
+        icon: mdi:gauge
+
+      - group: calculations
+        id: ID_WEB_Temperatur_TWE
+        friendly_name: Temperatur Sole Eingang
+        icon: mdi:thermometer
+
+      - group: calculations
+        id: ID_WEB_Temperatur_TWA
+        friendly_name: Temperatur Sole Ausgang
+        icon: mdi:thermometer
+
+      - group: calculations
+        id: Heat_Output
+        friendly_name: Heat Output
+        icon: mdi:heat-wave
+
+      - group: calculations
+        id: ID_WEB_WP_BZ_akt
+        friendly_name: Operation Mode
+
+      - group: calculations
+        id: ID_WEB_HZIO_PWM
+        friendly_name: HZIO PWM
+
+      - group: calculations
+        id: ID_WEB_WMZ_Heizung
+        friendly_name: Gesamt Energie Heizung
+        icon: mdi:lightning-bolt
+
+      - group: calculations
+        id: ID_WEB_WMZ_Brauchwasser
+        friendly_name: Gesamt Energie Warmwasser
+        icon: mdi:lightning-bolt
+
+      - group: calculations
+        id: ID_WEB_Freq_VD
+        friendly_name: Frequenz VD
+
+      - group: calculations
+        id: ID_WEB_Einst_BWS_akt
+        friendly_name: Temperatur Warmwasser Soll
+
+      - group: calculations
+        id: ID_WEB_Temperatur_TBW
+        friendly_name: Temperatur Warmwasser
+
+      - group: calculations
+        id: ID_WEB_Temperatur_TA
+        friendly_name: Temperatur Außen (WP)
+
+      - group: calculations
+        id: ID_WEB_LIN_HD
+        friendly_name: WP Hochdruck
+        icon: mdi:valve
+
+      - group: calculations
+        id: ID_WEB_LIN_ND
+        friendly_name: WP Niederdruck
+        icon: mdi:valve
+
+      # - group: calculations
+      #   id: HUP_PWM
+      #   friendly_name: WP HUP PWM
+
+      # --- Parameters ---
+      - group: parameters
+        id: ID_Ba_Hz_akt
+        friendly_name: Einstellung Heizkreis
+
+      - group: parameters
+        id: ID_Ba_Bw_akt
+        friendly_name: Einstellung Warmwasser
+
+    # --- Kühlung ---
+
+      - group: parameters
+        id: ID_Einst_BA_Kuehl_akt
+        friendly_name: Einstellung Kühlung
+
+      - group: parameters
+        id: ID_Einst_KuehlFreig_akt
+        friendly_name: Außentemperatur Kühlfreigabe
+        icon: mdi:thermometer-chevron-up
+
+      - group: calculations
+        id: ID_WEB_Sollwert_TVL_MK1
+        friendly_name: Sollwert Vorlauf Kühlung
+        icon: mdi:thermometer
+
+      - group: calculations
+        id: ID_WEB_Temperatur_TFB1
+        friendly_name: Temperatur Vorlauf Kühlung
+        icon: mdi:thermometer
+
+binary_sensor:
+  platform: luxtronik
+  sensors:
+      - group: calculations
+        id: ID_WEB_FreigabKuehl
+        friendly_name: Kühlfreigabe
+        icon: mdi:snowflake
+

@@ -2,13 +2,13 @@
 
 from homeassistant.const import (
     UnitOfTemperature,
-    UnitOfTime, 
+    UnitOfTime,
     UnitOfPressure,
     UnitOfEnergy,
     UnitOfElectricPotential,
     UnitOfPower,
     UnitOfFrequency,
-    PERCENTAGE
+    PERCENTAGE,
 )
 from homeassistant.components.sensor import SensorDeviceClass
 
@@ -84,5 +84,5 @@ UNITS = {
     CONF_HOURS: UnitOfTime.HOURS,
     CONF_FLOW: "l/h",
     CONF_WATT: UnitOfPower.WATT,
-    CONF_FREQUENCY: UnitOfFrequency.HERTZ
+    CONF_FREQUENCY: UnitOfFrequency.HERTZ,
 }
