@@ -111,6 +111,14 @@ sensor:
         id: ID_Ba_Bw_akt
         friendly_name: Einstellung Warmwasser
 
+      - group: parameters
+        id: Unknown_Parameter_1136
+        friendly_name: Energiezähler Heizung
+
+      - group: parameters
+        id: Unknown_Parameter_1137
+        friendly_name: Energiezähler Warmwasser
+
     # --- Kühlung ---
 
       - group: parameters
